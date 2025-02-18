@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crece & Evoluciona - Desarrollo Personal</title>
+    <style>
+        /* Estilos base */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            line-height: 1.6;
+        }
+
+        /* Header y navegación */
+        .header {
+            background: linear-gradient(135deg, #2c3e50, #3498db);
+            color: white;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .nav {
+            background-color: #34495e;
+            padding: 1rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 1rem;
+            transition: color 0.3s;
+        }
+
+        .nav a:hover {
+            color: #3498db;
+        }
+
+        /* Contenido principal */
+        .main-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .section {
+            margin: 2rem 0;
+            padding: 2rem;
+            border-radius: 10px;
+            background-color: #f8f9fa;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        /* Galería de imágenes */
+        .image-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+
+        .gallery-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 5px;
+        }
+
+        /* Formulario de contacto */
+        .contact-form {
+            display: grid;
+            gap: 1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .form-input {
+            padding: 0.5rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        .submit-btn {
+            background-color: #3498db;
+            color: white;
+            padding: 0.7rem;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        /* Testimonios */
+        .testimonials {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .testimonial-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        /* Calendario de eventos */
+        .calendar {
+            background: white;
+            padding: 1rem;
+            border-radius: 8px;
+        }
+
+        .event {
+            margin: 1rem 0;
+            padding: 1rem;
+            background: #f0f0f0;
+            border-radius: 4px;
+        }
+
+        /* Newsletter */
+        .newsletter {
+            background: #3498db;
+            color: white;
+            padding: 2rem;
+            text-align: center;
+            border-radius: 8px;
+        }
+
+        /* Redes sociales */
+        .social-media {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+
+        .social-icon {
+            width: 40px;
+            height: 40px;
+            background: #3498db;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+        }
+
+        /* Blog */
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .blog-card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .blog-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .blog-content {
+            padding: 1rem;
+        }
+
+        /* FAQ */
+        .faq-item {
+            margin: 1rem 0;
+            padding: 1rem;
+            background: white;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        /* Footer */
+        .footer {
+            background-color: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 4rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <h1>Crece & Evoluciona</h1>
+        <p>Tu camino hacia el desarrollo personal</p>
+    </header>
+
+    <!-- Navegación -->
+    <nav class="nav">
+        <a href="#inicio">Inicio</a>
+        <a href="#galeria">Galería</a>
+        <a href="#testimonios">Testimonios</a>
+        <a href="#eventos">Eventos</a>
+        <a href="#blog">Blog</a>
+        <a href="#faq">FAQ</a>
+        <a href="#contacto">Contacto</a>
+    </nav>
+
+    <main class="main-content">
+        <!-- Galería de imágenes -->
+        <section class="section" id="galeria">
+            <h2>Galería Inspiradora</h2>
+            <div class="image-gallery">
+                <img src="imagen1.jpg" alt="Inspiración 1" class="gallery-img">
+                <img src="imagen2.jpg" alt="Inspiración 2" class="gallery-img">
+                <img src="imagen3.jpg" alt="Inspiración 3" class="gallery-img">
+            </div>
+        </section>
+
+        <!-- Testimonios -->
+        <section class="section" id="testimonios">
+            <h2>Testimonios</h2>
+            <div class="testimonials">
+                <div class="testimonial-card">
+                    <p>"Este programa cambió mi vida completamente."</p>
+                    <h4>- María García</h4>
+                </div>
+                <div class="testimonial-card">
+                    <p>"Nunca pensé que podría lograr tanto en tan poco tiempo."</p>
+                    <h4>- Juan Pérez</h4>
+                </div>
+            </div>
+        </section>
+
+        <!-- Calendario de eventos -->
+        <section class="section" id="eventos">
+            <h2>Próximos Eventos</h2>
+            <div class="calendar">
+                <div class="event">
+                    <h3>Taller de Mindfulness</h3>
+                    <p>Fecha: 25 de Marzo, 2025</p>
+                </div>
+                <div class="event">
+                    <h3>Seminario de Liderazgo</h3>
+                    <p>Fecha: 10 de Abril, 2025</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Blog -->
+        <section class="section" id="blog">
+            <h2>Blog</h2>
+            <div class="blog-grid">
+                <article class="blog-card">
+                    <img src="blog1.jpg" alt="Blog 1" class="blog-image">
+                    <div class="blog-content">
+                        <h3>Cómo establecer metas efectivas</h3>
+                        <p>Aprende a establecer metas que realmente puedas alcanzar...</p>
+                    </div>
+                </article>
+                <article class="blog-card">
+                    <img src="blog2.jpg" alt="Blog 2" class="blog-image">
+                    <div class="blog-content">
+                        <h3>Técnicas de mindfulness</h3>
+                        <p>Descubre cómo la atención plena puede transformar tu vida...</p>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- Newsletter -->
+        <section class="newsletter">
+            <h2>¡Suscríbete a nuestro Newsletter!</h2>
+            <p>Recibe consejos semanales de desarrollo personal</p>
+            <form class="contact-form">
+                <input type="email" placeholder="Tu email" class="form-input">
+                <button type="submit" class="submit-btn">Suscribirse</button>
+            </form>
+        </section>
+
+        <!-- Redes sociales -->
+        <section class="social-media">
+            <a href="#" class="social-icon">FB</a>
+            <a href="#" class="social-icon">IG</a>
+            <a href="#" class="social-icon">TW</a>
+            <a href="#" class="social-icon">YT</a>
+        </section>
+
+        <!-- FAQ -->
+        <section class="section" id="faq">
+            <h2>Preguntas Frecuentes</h2>
+            <div class="faq-item">
+                <h3>¿Cómo empiezo mi viaje de desarrollo personal?</h3>
+                <p>Comienza identificando tus objetivos y valores personales...</p>
+            </div>
+            <div class="faq-item">
+                <h3>¿Cuánto tiempo toma ver resultados?</h3>
+                <p>El desarrollo personal es un proceso continuo...</p>
+            </div>
+        </section>
+
+        <!-- Formulario de contacto -->
+        <section class="section" id="contacto">
+            <h2>Contacto</h2>
+            <form class="contact-form">
+                <input type="text" placeholder="Nombre" class="form-input">
+                <input type="email" placeholder="Email" class="form-input">
+                <textarea placeholder="Mensaje" class="form-input" rows="5"></textarea>
+                <button type="submit" class="submit-btn">Enviar Mensaje</button>
+            </form>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2025 Crece & Evoluciona. Todos los derechos reservados.</p>
+    </footer>
+</body>
+</html>
