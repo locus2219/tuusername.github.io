@@ -1,0 +1,17 @@
+// blog_functions.php
+class Blog {
+    private $pdo;
+    
+    public function __construct($config) {
+        $this->pdo = new PDO("mysql:host={$config['db_host']};dbname={$config['db_name']}", 
+                            $config['db_user'], 
+                            $config['db_pass']);
+    }
+    
+    public function getPosts($page = 1, $limit = 10) {
+        $offset = ($page - 1) * $limit;
+        $stmt = $this->pdo->prepare("SELECT * FROM posts ORDER BY created_at DESC LIMIT ? OFFSET ?");
+        $stmt->execute([$limit, $offset]);
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+}
