@@ -1,0 +1,37 @@
+<?php
+// config.php
+$config = [
+    'db_host' => 'localhost',
+    'db_name' => 'crecimiento_personal',
+    'db_user' => 'usuario',
+    'db_pass' => 'contraseña',
+    'mail_host' => 'smtp.tuservidor.com',
+    'mail_user' => 'tu@email.com',
+    'mail_pass' => 'tu-password'
+];
+
+// process_form.php
+function processContactForm($data) {
+    global $config;
+    
+    // Validación
+    if (empty($data['email']) || empty($data['message'])) {
+        return ['success' => false, 'message' => 'Todos los campos son requeridos'];
+    }
+    
+    // Guardar en base de datos
+    $pdo = new PDO("mysql:host={$config['db_host']};dbname={$config['db_name']}", 
+                   $config['db_user'], 
+                   $config['db_pass']);
+    
+    $stmt = $pdo->prepare("INSERT INTO contacts (name, email, message) VALUES (?, ?, ?)");
+    $stmt->execute([$data['name'], $data['email'], $data['message']]);
+    
+    // Enviar email
+    mail($config['mail_user'], 
+         "Nuevo contacto desde web", 
+         "Mensaje de {$data['name']}: {$data['message']}", 
+         "From: {$data['email']}");
+    
+    return ['success' => true, 'message' => 'Mensaje enviado correctamente'];
+}
