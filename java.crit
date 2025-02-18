@@ -1,0 +1,31 @@
+// Configuración para optimización de imágenes
+const imageConfig = {
+    cloudinary: {
+        cloudName: 'tu-cloud-name',
+        apiKey: 'tu-api-key',
+        apiSecret: 'tu-api-secret'
+    },
+    sizes: {
+        thumbnail: 300,
+        medium: 600,
+        large: 1200
+    }
+}
+
+// Sistema de lazy loading
+document.addEventListener("DOMContentLoaded", function() {
+    const images = document.querySelectorAll('img[data-src]');
+    
+    const imageObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const img = entry.target;
+                img.src = img.dataset.src;
+                img.classList.remove("lazy");
+                observer.unobserve(img);
+            }
+        });
+    });
+
+    images.forEach(img => imageObserver.observe(img));
+});
