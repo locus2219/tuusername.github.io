@@ -1,0 +1,19 @@
+// seo-utils.js
+class SEOOptimizer {
+    static generateSitemap() {
+        // Lógica para generar sitemap.xml
+    }
+
+    static optimizeImages() {
+        // Lógica para optimización de imágenes
+    }
+
+    static generateStructuredData() {
+        return {
+            "@context": "https://schema.org",
+            "@type": "WebSite",
+            "name": "Crece & Evoluciona",
+            "url": "https://tudominio.com"
+        };
+    }
+}
