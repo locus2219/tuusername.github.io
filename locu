@@ -1,0 +1,27 @@
+class EventCalendar {
+    constructor() {
+        this.events = [];
+        this.currentDate = new Date();
+    }
+
+    addEvent(event) {
+        this.events.push({
+            id: Date.now(),
+            title: event.title,
+            date: new Date(event.date),
+            description: event.description
+        });
+    }
+
+    getMonthEvents(month, year) {
+        return this.events.filter(event => {
+            return event.date.getMonth() === month && 
+                   event.date.getFullYear() === year;
+        });
+    }
+
+    renderCalendar(elementId) {
+        const calendar = document.getElementById(elementId);
+        // Lógica de renderizado del calendario
+    }
+}
