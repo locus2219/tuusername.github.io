@@ -1,0 +1,33 @@
+class CacheSystem {
+    private $cache_path;
+    
+    public function __construct($path = 'cache/') {
+        $this->cache_path = $path;
+    }
+    
+    public function set($key, $data, $expiration = 3600) {
+        $cache_data = [
+            'data' => $data,
+            'expiration' => time() + $expiration
+        ];
+        
+        file_put_contents(
+            $this->cache_path . md5($key) . '.cache',
+            serialize($cache_data)
+        );
+    }
+    
+    public function get($key) {
+        $filename = $this->cache_path . md5($key) . '.cache';
+        
+        if (file_exists($filename)) {
+            $cache_data = unserialize(file_get_contents($filename));
+            
+            if (time() < $cache_data['expiration']) {
+                return $cache_data['data'];
+            }
+        }
+        
+        return null;
+    }
+}
