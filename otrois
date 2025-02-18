@@ -1,0 +1,21 @@
+-- Estructura de la base de datos
+CREATE TABLE posts (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    title VARCHAR(255),
+    content TEXT,
+    image_url VARCHAR(255),
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+);
+
+CREATE TABLE categories (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(100)
+);
+
+CREATE TABLE post_categories (
+    post_id INT,
+    category_id INT,
+    FOREIGN KEY (post_id) REFERENCES posts(id),
+    FOREIGN KEY (category_id) REFERENCES categories(id)
+);
